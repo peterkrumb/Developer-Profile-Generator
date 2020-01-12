@@ -1,31 +1,4 @@
-const colors = {
-    green: {
-      wrapperBackground: "#E6E1C3",
-      headerBackground: "#C1C72C",
-      headerColor: "black",
-      photoBorderColor: "#black"
-    },
-    blue: {
-      wrapperBackground: "#5F64D3",
-      headerBackground: "#26175A",
-      headerColor: "white",
-      photoBorderColor: "#73448C"
-    },
-    pink: {
-      wrapperBackground: "#879CDF",
-      headerBackground: "#FF8374",
-      headerColor: "white",
-      photoBorderColor: "#FEE24C"
-    },
-    red: {
-      wrapperBackground: "#DE9967",
-      headerBackground: "#870603",
-      headerColor: "white",
-      photoBorderColor: "white"
-    }
-  };
-  
-  function generateHTML(data) {
+  function generateHTML({username, color}) {
     return `<!DOCTYPE html>
   <html lang="en">
      <head>
@@ -35,6 +8,10 @@ const colors = {
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"/>
         <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
         <title>Document</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
         <style>
             @page {
               margin: 0;
@@ -52,7 +29,7 @@ const colors = {
            height: 100%;
            }
            .wrapper {
-           background-color: ${colors[data.color].wrapperBackground};
+           background-color: ${colors[color].wrapperBackground};
            padding-top: 100px;
            }
            body {
@@ -94,8 +71,8 @@ const colors = {
            display: flex;
            justify-content: center;
            flex-wrap: wrap;
-           background-color: ${colors[data.color].headerBackground};
-           color: ${colors[data.color].headerColor};
+           background-color: ${colors[color].headerBackground};
+           color: ${colors[color].headerColor};
            padding: 10px;
            width: 95%;
            border-radius: 6px;
@@ -106,7 +83,7 @@ const colors = {
            border-radius: 50%;
            object-fit: cover;
            margin-top: -75px;
-           border: 6px solid ${colors[data.color].photoBorderColor};
+           border: 6px solid ${colors[color].photoBorderColor};
            box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
            }
            .photo-header h1, .photo-header h2 {
@@ -149,8 +126,8 @@ const colors = {
            .card {
              padding: 20px;
              border-radius: 6px;
-             background-color: ${colors[data.color].headerBackground};
-             color: ${colors[data.color].headerColor};
+             background-color: ${colors[color].headerBackground};
+             color: ${colors[color].headerColor};
              margin: 20px;
            }
            
@@ -170,6 +147,17 @@ const colors = {
               zoom: .75; 
             } 
            }
-        </style>`
+        </style>
+        <div class="wrapper">
+        <div class="container">
+            <div class="row mb-8" style="background-color: black;">
+            <img src="" alt="avatar">
+            </div>
+            <div class="row" style="background-color: pink;"><h1>hi</h1></div>
+            <div class="row" style="background-color: black;"><h1>hi</h1></div>
+        </div>
+    </div>
+      </body>
+      </html>`
           }
-          console.log(data);
+          
