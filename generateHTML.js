@@ -172,3 +172,4 @@ const colors = {
            }
         </style>`
           }
+          console.log(data);
