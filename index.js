@@ -5,12 +5,10 @@ const fs = require("fs");
 const axios = require("axios");
 //must install inquirer
 const inquirer = require("inquirer");
+// const electron = require("electron");
 // convertFactory = require("electron-html-to");
-// var conversion = convertFactory({
-//   converterPath: convertFactory.converters.PDF
-//});
-
-//const api = require("./api");
+// const conversion = convertFactory({
+//   converterPath: convertFactory.converters.PDF});
 
 //This is our inquirer prompt for collecting the user's input so we can change the background color and render their github information
 inquirer.prompt([
@@ -25,7 +23,7 @@ inquirer.prompt([
     name: "color",
     choices: ["green", "blue", "pink", "red"],
   },
-  //<--Second part of axios call, uses function arguments as variables for what follows-->
+  //<--Second part of axios call, uses arguments as variables for what follows-->
 ]).then(function ({ username, color }) {
   const queryUrl = `https://api.github.com/users/${username}`;
   axios.get(queryUrl).then(function (res) {
@@ -80,7 +78,7 @@ inquirer.prompt([
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Paul Cwik's Profile</title>
+  <title>${name}'s Profile</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
   <link href="https://fonts.googleapis.com/css?family=BioRhyme|Cabin&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -232,7 +230,8 @@ inquirer.prompt([
                 @media print { 
                   body { 
                     zoom: .75; 
-                  }} `
+                  }} `;
+                                    
         //<--This is telling electron which file to convert, in this case its an html filed named html, our const from above-->
         //conversion( {html: html} , function(err, result) {
         //   //<--If there's an error throw the error to the console log, otherwise use result.stream.pipe function taken from npm website-->
@@ -245,13 +244,15 @@ inquirer.prompt([
         // }).catch(function (err) {
         //   console.log(err);
 
-        fs.writeFile("profile.html", html, function (err) {
 
-          if (err) {
-            return console.log(err);
-          }
-          console.log("Success!");
-        });
+
+
+fs.writeFile('profile.html', html, (err) => {
+  // throws an error, you could also catch it here
+  if (err) throw err;
+  
+});
+
 
         fs.writeFile("style.css", css, function (err) {
 
@@ -264,30 +265,18 @@ inquirer.prompt([
       });
 
 
-
-
-  });
-
 });
 
-
-    // });
-
-
-  //})
+  
 
 
 
 
+     });
 
-//const questions = [];
 
-//function writeToFile(fileName, data) {
+ 
 
-//}
 
-//function init() {
 
-//}
 
-//init();
