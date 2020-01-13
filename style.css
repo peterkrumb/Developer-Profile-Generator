@@ -18,10 +18,10 @@
         -webkit-print-color-adjust: exact !important;
         font-family: 'Cabin', sans-serif;
         }
-      .wrapper {
-        * background-color: #E6E1C3; */
-        padding-top: 100px;
-        }
+        .wrapper {
+          background-color: #DE9967;
+          padding-top: 100px;
+          }
         h1, h2, h3, h4, h5, h6 {
           font-family: 'BioRhyme', serif;
           margin: 0;
@@ -36,14 +36,21 @@
           font-size: 2em;
           }
           h4 {
+          text-align: center;
           font-size: 1.5em;
           }
           h5 {
           font-size: 1.3em;
           }
           h6 {
+          text-align: center;
           font-size: 1.2em;
           }
+          main {
+            background-color: #E9EDEE;
+            height: auto;
+            padding-top: 30px;
+            }
           .photo-header h1, .photo-header h2 {
             width: 100%;
             text-align: center;
@@ -57,7 +64,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-top: -75px;
-            border: 6px solid #black;
+            border: 6px solid white;
             box-shadow: rgba(0, 0, 0, 0.3) 4px 1px 20px 4px;
             }
             .photo-header {
@@ -67,8 +74,8 @@
               display: flex;
               justify-content: center;
               flex-wrap: wrap;
-              background-color: #C1C72C;
-              color: black;
+              background-color: #870603;
+              color: white;
               padding: 10px;
               width: 95%;
               border-radius: 6px;
@@ -76,7 +83,21 @@
               .card {
                 padding: 20px;
                 border-radius: 6px;
-                background-color: #C1C72C;
-                color: black;
+                background-color: #870603;
+                color: white;
                 margin: 20px;
               }
+              .links-nav {
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                font-size: 1.1em;
+                }
+                .nav-link {
+                display: inline-block;
+                margin: 5px 10px;
+                }
+                @media print { 
+                  body { 
+                    zoom: .75; 
+                  }} 
