@@ -246,15 +246,17 @@ inquirer.prompt([
 
 
 
+        //<--writeFile is what we use to create the html and css files-->
+        fs.writeFile('profile.html', html, (err) => {
+          if (err) {
+            return console.log(err);
+          }
+          console.log("Success!");
 
-fs.writeFile('profile.html', html, (err) => {
-  // throws an error, you could also catch it here
-  if (err) throw err;
-  
-});
+        });
 
 
-        fs.writeFile("style.css", css, function (err) {
+        fs.writeFile("style.css", css, (err) => {
 
           if (err) {
             return console.log(err);
